@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'screens/home_screen/home_screen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -13,10 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'QueenSpot',
-      theme: ThemeData(
-       backgroundColor: Colors.black
-      ),
-      home: HomeScreen(),
+     
+      home: const HomeScreen(),
+    
     );
   }
 }
