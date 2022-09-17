@@ -4,7 +4,9 @@ import 'package:queenspot/screens/home_screen/widgets/custom_container_widget.da
 
 import 'package:queenspot/screens/utils/app_strings.dart';
 import 'package:queenspot/screens/utils/colors.dart';
-import 'package:queenspot/screens/utils/text_style.dart';
+
+import '../utils/constants.dart';
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -24,11 +26,11 @@ class HomeScreen extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-              containerWidget(width: 200,height: 100,image: AssetsPath.mackUp,name: 'About us',radius: 10),
+              containerWidget(width: 200,height: 120,image: AssetsPath.mackUp,name: 'About us',radius: 10,press: (){}),
               const SizedBox(width: 10,),
-              containerWidget(width: 200,height: 100,name: 'Testimonals',image: AssetsPath.bridal,radius: 10),
+              containerWidget(width: 200,height: 120,name: 'Testimonals',image: AssetsPath.bridal,radius: 10,press: (){}),
               const SizedBox(width: 10,),
-              containerWidget(width: 200,height: 100,name: 'Appointment',image: AssetsPath.mackUp,radius: 10),
+              containerWidget(width: 200,height: 120,name: 'Appointment',image: AssetsPath.mackUp,radius: 10,press: (){}),
             ],
           ),
          
@@ -43,21 +45,25 @@ class HomeScreen extends StatelessWidget {
             containerWithDividerWidget(width: double.infinity, height: 150 ,endIndent: 120.0,thickness: 2,color: Colors.pink, radius: 10,name: 'Bridal',image: AssetsPath.bridal),
              SizedBox(height:size.height*0.02 ,),
             containerWithDividerWidget(width: double.infinity, height: 150 ,endIndent: 163.0,thickness: 2,color: Colors.pink, radius: 10,name: 'Others',image: AssetsPath.hands),
+               SizedBox(height:size.height*0.02 ,),
         ],),
       ),)),
     );
   }
 
-  CustomContainerWidget containerWidget({required double width,required double height, required double radius,String? name,image}) => CustomContainerWidget(width: width, height: height, radius: radius, 
-  child: Column(
-   
-    children: [
-    
-  Image.asset(image,height: 80,),
-  Text(name!,style: textStyle,),
-
-
-  ],));
+  CustomContainerWidget containerWidget({required double width,required double height,required Function() press, required double radius,String? name,image}) => CustomContainerWidget(width: width, height: height, radius: radius, 
+  child: TextButton(
+    onPressed: press,
+    child: Column(
+     
+      children: [
+      
+    Image.asset(image,height: 80,),
+    Text(name!,style: textStyle,),
+  
+  
+    ],),
+  ));
 
  CustomContainerWidget containerWithDividerWidget({required double width,required double height,required  double endIndent, required double thickness,required double radius,required Color color,String? name,image}) => 
  CustomContainerWidget(width: width, height: height, radius: radius, 
