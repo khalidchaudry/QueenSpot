@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:queenspot/screens/routes/route_name.dart';
 
-import 'screens/home_screen/home_screen.dart';
+import 'screens/routes/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,11 +13,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const  MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'QueenSpot',
-     
-      home: const HomeScreen(),
+    
+      onGenerateRoute: Routes.routeGenerator,
     
     );
   }
